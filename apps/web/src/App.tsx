@@ -19,6 +19,7 @@ import { formatDate } from './utils/format'
 const emptyFilters: Filters = { region: '', organization: '', dataStatus: '', progressStatus: '', stage: '' }
 const orderedStages: Stage[] = ['POLICY', 'BUSINESS', 'PERMIT', 'CONSTRUCTION', 'SUPPLY', 'MOVE_IN']
 const dataWeight = { AVAILABLE: 1, PARTIAL: .5, NOT_CONNECTED: 0, NOT_AVAILABLE: 0 } as const
+const dashboardRetryDelays = [0, 3000, 6000, 10000]
 
 function App() {
   const [summary, setSummary] = useState<Summary | null>(null)
@@ -35,16 +36,48 @@ function App() {
   const [detailLoading, setDetailLoading] = useState(false)
   const [alertsOpen, setAlertsOpen] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [retryAttempt, setRetryAttempt] = useState(0)
   const [error, setError] = useState('')
   const [view, setView] = useState<'dashboard' | 'review'>(() => new URLSearchParams(location.search).get('view') === 'review' ? 'review' : 'dashboard')
 
   useEffect(() => {
-    Promise.all([api.summary(), api.pipeline(), api.projects(), api.alerts(), api.progress(), api.coverage()])
-      .then(([s, pipeline, projectRows, alertRows, progressRows, coverageRows]) => { setSummary(s); setApiPipeline(pipeline); setProjects(projectRows); setAlerts(alertRows); setProgress(progressRows); setCoverage(coverageRows) })
-      .catch(err => setError(err instanceof Error ? err.message : '데이터를 불러오지 못했습니다.'))
-      .finally(() => setLoading(false))
+    let cancelled = false
+    let retryTimer: number | undefined
+    let activeRequest: AbortController | undefined
+    const loadDashboard = async () => {
+      let lastError = '데이터를 불러오지 못했습니다.'
+      for (let attempt = 0; attempt < dashboardRetryDelays.length; attempt += 1) {
+        if (cancelled) return
+        try {
+          activeRequest = new AbortController()
+          const { signal } = activeRequest
+          const [s, pipeline, projectRows, alertRows, progressRows, coverageRows] = await Promise.all([api.summary(signal), api.pipeline(signal), api.projects(signal), api.alerts(signal), api.progress(signal), api.coverage(signal)])
+          if (cancelled) return
+          setSummary(s); setApiPipeline(pipeline); setProjects(projectRows); setAlerts(alertRows); setProgress(progressRows); setCoverage(coverageRows)
+          setError(''); setRetryAttempt(0); setLoading(false)
+          return
+        } catch (err) {
+          activeRequest?.abort()
+          if (cancelled) return
+          lastError = err instanceof Error ? err.message : lastError
+          if (attempt === dashboardRetryDelays.length - 1) {
+            if (!cancelled) { setError(lastError); setLoading(false) }
+            return
+          }
+          if (!cancelled) setRetryAttempt(attempt + 1)
+          await new Promise<void>(resolve => { retryTimer = window.setTimeout(resolve, dashboardRetryDelays[attempt + 1]) })
+        }
+      }
+    }
+    void loadDashboard()
+    return () => { cancelled = true; activeRequest?.abort(); if (retryTimer !== undefined) window.clearTimeout(retryTimer) }
   }, [])
-  useEffect(() => { api.upcoming(months).then(setUpcoming).catch(() => setUpcoming(null)) }, [months])
+  useEffect(() => {
+    if (!summary) return
+    let cancelled = false
+    api.upcoming(months).then(data => { if (!cancelled) setUpcoming(data) }).catch(() => { if (!cancelled) setUpcoming(null) })
+    return () => { cancelled = true }
+  }, [months, summary])
 
   const baseProjects = useMemo(() => projects.filter(project =>
     (!filters.region || project.province === filters.region) &&
@@ -83,7 +116,7 @@ function App() {
   const changeRegion = (region: string) => setFilters(current => ({ ...current, region }))
   const resetFilters = () => { setFilters(emptyFilters); setIssueFilter('') }
 
-  if (loading) return <div className="app-loading"><Waves size={36} /><strong>주택파동</strong><span>공급 흐름을 연결하고 있습니다</span></div>
+  if (loading) return <div className="app-loading"><Waves size={36} /><strong>{retryAttempt ? '서버를 준비하고 있습니다' : '주택파동'}</strong><span>{retryAttempt ? `잠시 후 자동으로 다시 시도합니다. (${dashboardRetryDelays[retryAttempt] / 1000}초 후 · ${retryAttempt + 1}/${dashboardRetryDelays.length})` : '공급 흐름을 연결하고 있습니다'}</span></div>
   if (error || !summary) return <div className="app-error"><AlertOctagon size={36} /><h1>상황판을 불러오지 못했습니다</h1><p>{error}</p><button onClick={() => location.reload()}><RefreshCw size={15} /> 다시 시도</button></div>
 
   return <div className="app-shell compact-shell">
