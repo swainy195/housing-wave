@@ -1,0 +1,2 @@
+"""Housing Wave API package."""
+

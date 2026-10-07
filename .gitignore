@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.vite/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.tsbuildinfo
+.venv/
+venv/
+
+# Local credentials. Keep the documented placeholder under version control.
+.env
+.env.*
+!.env.example
+
+# Editor and local-only artifacts.
+.vscode/
+.idea/
+temp/
+downloads/
+*.log

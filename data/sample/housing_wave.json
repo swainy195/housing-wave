@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "dataset_name": "Housing Wave Phase 1 DEMO",
+    "reference_date": "2026-09-30",
+    "last_updated_at": "2026-10-05T09:00:00+09:00",
+    "disclaimer": "모든 수치는 화면과 API 검증을 위한 가상 샘플 데이터입니다. 실제 정책 통계가 아닙니다."
+  },
+  "organizations": [
+    {"id": "ORG-LH", "name": "LH", "organization_type": "PUBLIC_CORPORATION"},
+    {"id": "ORG-SH", "name": "SH", "organization_type": "LOCAL_CORPORATION"},
+    {"id": "ORG-GH", "name": "GH", "organization_type": "LOCAL_CORPORATION"},
+    {"id": "ORG-IH", "name": "iH", "organization_type": "LOCAL_CORPORATION"}
+  ],
+  "policies": [
+    {"id": "POL-001", "name": "DEMO 수도권 공급기반 계획", "organization_id": "ORG-LH", "announced_date": "2025-12-15", "target_units": 75000, "target_stage": "SUPPLY", "target_region": "수도권", "target_date": "2030-12-31", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "POL-002", "name": "DEMO 지역공사 연계 공급계획", "organization_id": "ORG-GH", "announced_date": "2026-02-20", "target_units": 25000, "target_stage": "BUSINESS", "target_region": "서울·경기·인천", "target_date": "2029-12-31", "source_url": null, "data_status": "PARTIAL"}
+  ],
+  "projects": [
+    {"id": "P001", "name": "DEMO 마곡 연결지구 A1", "organization_id": "ORG-SH", "province": "서울", "district": "강서구", "address": "서울 강서구 샘플로 1", "latitude": 37.566, "longitude": 126.83, "planned_units": 4800, "housing_type": "공공임대", "current_stage": "BUSINESS", "data_status": "NOT_CONNECTED"},
+    {"id": "P002", "name": "DEMO 고덕 주거지구 B3", "organization_id": "ORG-SH", "province": "서울", "district": "강동구", "address": "서울 강동구 샘플로 2", "latitude": 37.556, "longitude": 127.16, "planned_units": 3600, "housing_type": "공공분양", "current_stage": "PERMIT", "data_status": "NOT_CONNECTED"},
+    {"id": "P003", "name": "DEMO 하남 B2", "organization_id": "ORG-LH", "province": "경기", "district": "하남시", "address": "경기 하남시 샘플로 3", "latitude": 37.54, "longitude": 127.21, "planned_units": 6200, "housing_type": "공공분양", "current_stage": "CONSTRUCTION", "data_status": "AVAILABLE"},
+    {"id": "P004", "name": "DEMO 검단 생활권 C4", "organization_id": "ORG-IH", "province": "인천", "district": "서구", "address": "인천 서구 샘플로 4", "latitude": 37.59, "longitude": 126.67, "planned_units": 4100, "housing_type": "공공임대", "current_stage": "SUPPLY", "data_status": "AVAILABLE"},
+    {"id": "P005", "name": "DEMO 위례 순환지구 D1", "organization_id": "ORG-LH", "province": "경기", "district": "성남시", "address": "경기 성남시 샘플로 5", "latitude": 37.47, "longitude": 127.14, "planned_units": 5300, "housing_type": "공공분양", "current_stage": "MOVE_IN", "data_status": "PARTIAL"},
+    {"id": "P006", "name": "DEMO 노원 전환지구 E2", "organization_id": "ORG-SH", "province": "서울", "district": "노원구", "address": "서울 노원구 샘플로 6", "latitude": 37.65, "longitude": 127.07, "planned_units": 2800, "housing_type": "장기전세", "current_stage": "BUSINESS", "data_status": "NOT_CONNECTED"},
+    {"id": "P007", "name": "DEMO 고양 A3", "organization_id": "ORG-LH", "province": "경기", "district": "고양시", "address": "경기 고양시 샘플로 7", "latitude": 37.66, "longitude": 126.83, "planned_units": 7600, "housing_type": "공공분양", "current_stage": "CONSTRUCTION", "data_status": "AVAILABLE"},
+    {"id": "P008", "name": "DEMO 남양주 C1", "organization_id": "ORG-GH", "province": "경기", "district": "남양주시", "address": "경기 남양주시 샘플로 8", "latitude": 37.64, "longitude": 127.22, "planned_units": 3900, "housing_type": "공공임대", "current_stage": "CONSTRUCTION", "data_status": "NOT_AVAILABLE"},
+    {"id": "P009", "name": "DEMO 계양 상생지구 F2", "organization_id": "ORG-IH", "province": "인천", "district": "계양구", "address": "인천 계양구 샘플로 9", "latitude": 37.54, "longitude": 126.73, "planned_units": 4400, "housing_type": "신혼희망", "current_stage": "PERMIT", "data_status": "PARTIAL"},
+    {"id": "P010", "name": "DEMO 광명 녹색지구 G5", "organization_id": "ORG-GH", "province": "경기", "district": "광명시", "address": "경기 광명시 샘플로 10", "latitude": 37.45, "longitude": 126.87, "planned_units": 5100, "housing_type": "공공분양", "current_stage": "SUPPLY", "data_status": "PARTIAL"},
+    {"id": "P011", "name": "DEMO 화성 H1", "organization_id": "ORG-LH", "province": "경기", "district": "화성시", "address": "경기 화성시 샘플로 11", "latitude": 37.20, "longitude": 126.82, "planned_units": 3300, "housing_type": "공공임대", "current_stage": "CONSTRUCTION", "data_status": "PARTIAL"},
+    {"id": "P012", "name": "DEMO 송도 공공주거 I3", "organization_id": "ORG-IH", "province": "인천", "district": "연수구", "address": "인천 연수구 샘플로 12", "latitude": 37.39, "longitude": 126.64, "planned_units": 2700, "housing_type": "공공분양", "current_stage": "CONSTRUCTION", "data_status": "PARTIAL"},
+    {"id": "P013", "name": "DEMO 은평 생활권 J2", "organization_id": "ORG-SH", "province": "서울", "district": "은평구", "address": "서울 은평구 샘플로 13", "latitude": 37.61, "longitude": 126.92, "planned_units": 5800, "housing_type": "공공임대", "current_stage": "PERMIT", "data_status": "NOT_CONNECTED"},
+    {"id": "P014", "name": "DEMO 부천 연결지구 K4", "organization_id": "ORG-LH", "province": "경기", "district": "부천시", "address": "경기 부천시 샘플로 14", "latitude": 37.50, "longitude": 126.76, "planned_units": 4600, "housing_type": "공공분양", "current_stage": "BUSINESS", "data_status": "AVAILABLE"},
+    {"id": "P015", "name": "DEMO 의왕 전환지구 L1", "organization_id": "ORG-GH", "province": "경기", "district": "의왕시", "address": "경기 의왕시 샘플로 15", "latitude": 37.34, "longitude": 126.97, "planned_units": 3200, "housing_type": "공공임대", "current_stage": "MOVE_IN", "data_status": "PARTIAL"},
+    {"id": "P016", "name": "DEMO 용산 검토지구 M1", "organization_id": "ORG-SH", "province": "서울", "district": "용산구", "address": "서울 용산구 샘플로 16", "latitude": 37.53, "longitude": 126.98, "planned_units": 2500, "housing_type": "공공분양", "current_stage": "BUSINESS", "data_status": "NOT_CONNECTED"}
+  ],
+  "policy_project_links": [
+    {"id": "L001", "policy_id": "POL-001", "project_id": "P001", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L002", "policy_id": "POL-001", "project_id": "P002", "link_type": "VERIFIED", "evidence_url": null},
+    {"id": "L003", "policy_id": "POL-001", "project_id": "P003", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L004", "policy_id": "POL-001", "project_id": "P004", "link_type": "VERIFIED", "evidence_url": null},
+    {"id": "L005", "policy_id": "POL-001", "project_id": "P005", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L006", "policy_id": "POL-001", "project_id": "P006", "link_type": "VERIFIED", "evidence_url": null},
+    {"id": "L007", "policy_id": "POL-001", "project_id": "P007", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L008", "policy_id": "POL-001", "project_id": "P008", "link_type": "VERIFIED", "evidence_url": null},
+    {"id": "L009", "policy_id": "POL-001", "project_id": "P009", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L010", "policy_id": "POL-001", "project_id": "P010", "link_type": "VERIFIED", "evidence_url": null},
+    {"id": "L011", "policy_id": "POL-002", "project_id": "P011", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L012", "policy_id": "POL-002", "project_id": "P012", "link_type": "VERIFIED", "evidence_url": null},
+    {"id": "L013", "policy_id": "POL-002", "project_id": "P013", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L014", "policy_id": "POL-002", "project_id": "P014", "link_type": "OFFICIAL", "evidence_url": null},
+    {"id": "L015", "policy_id": "POL-002", "project_id": "P015", "link_type": "VERIFIED", "evidence_url": null},
+    {"id": "L016", "policy_id": "POL-002", "project_id": "P016", "link_type": "CANDIDATE", "evidence_url": null}
+  ],
+  "project_events": [
+    {"id": "E001", "project_id": "P001", "stage": "BUSINESS", "event_type": "BUSINESS_CONFIRMED", "planned_date": "2026-11-15", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "NOT_CONNECTED"},
+    {"id": "E002", "project_id": "P002", "stage": "PERMIT", "event_type": "PERMIT_APPROVAL", "planned_date": "2026-08-20", "actual_date": null, "status": "DELAYED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "NOT_CONNECTED"},
+    {"id": "E003", "project_id": "P003", "stage": "CONSTRUCTION", "event_type": "CONSTRUCTION_START", "planned_date": "2025-09-01", "actual_date": "2025-09-17", "status": "COMPLETED", "delay_days": 16, "reference_date": "2026-09-30", "source_url": null, "data_status": "AVAILABLE"},
+    {"id": "E004", "project_id": "P003", "stage": "MOVE_IN", "event_type": "COMPLETION", "planned_date": "2027-03-20", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "E005", "project_id": "P004", "stage": "SUPPLY", "event_type": "SUPPLY_ANNOUNCEMENT", "planned_date": "2026-10-21", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "AVAILABLE"},
+    {"id": "E006", "project_id": "P004", "stage": "MOVE_IN", "event_type": "MOVE_IN_START", "planned_date": "2027-08-01", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "E007", "project_id": "P005", "stage": "MOVE_IN", "event_type": "MOVE_IN_START", "planned_date": "2026-12-10", "actual_date": null, "status": "CHANGED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "E008", "project_id": "P006", "stage": "BUSINESS", "event_type": "BUSINESS_CONFIRMED", "planned_date": null, "actual_date": null, "status": "UNKNOWN", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "NOT_CONNECTED"},
+    {"id": "E009", "project_id": "P007", "stage": "CONSTRUCTION", "event_type": "CONSTRUCTION_START", "planned_date": "2025-02-01", "actual_date": "2025-02-03", "status": "COMPLETED", "delay_days": 2, "reference_date": "2026-09-30", "source_url": null, "data_status": "AVAILABLE"},
+    {"id": "E010", "project_id": "P007", "stage": "MOVE_IN", "event_type": "COMPLETION", "planned_date": "2027-01-20", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "AVAILABLE"},
+    {"id": "E011", "project_id": "P008", "stage": "CONSTRUCTION", "event_type": "CONSTRUCTION_START", "planned_date": "2026-07-15", "actual_date": "2026-08-01", "status": "COMPLETED", "delay_days": 17, "reference_date": "2026-09-30", "source_url": null, "data_status": "NOT_AVAILABLE"},
+    {"id": "E012", "project_id": "P009", "stage": "PERMIT", "event_type": "PERMIT_APPROVAL", "planned_date": "2026-11-05", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "E013", "project_id": "P010", "stage": "SUPPLY", "event_type": "SUPPLY_ANNOUNCEMENT", "planned_date": "2026-09-10", "actual_date": "2026-10-08", "status": "CHANGED", "delay_days": 28, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "E014", "project_id": "P011", "stage": "CONSTRUCTION", "event_type": "CONSTRUCTION_START", "planned_date": "2025-11-01", "actual_date": "2025-12-12", "status": "COMPLETED", "delay_days": 41, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "E015", "project_id": "P012", "stage": "MOVE_IN", "event_type": "COMPLETION", "planned_date": "2027-06-01", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"},
+    {"id": "E016", "project_id": "P013", "stage": "PERMIT", "event_type": "PERMIT_APPROVAL", "planned_date": null, "actual_date": null, "status": "UNKNOWN", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "NOT_CONNECTED"},
+    {"id": "E017", "project_id": "P014", "stage": "CONSTRUCTION", "event_type": "CONSTRUCTION_START", "planned_date": "2027-02-15", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "AVAILABLE"},
+    {"id": "E018", "project_id": "P015", "stage": "MOVE_IN", "event_type": "MOVE_IN_START", "planned_date": "2026-10-30", "actual_date": null, "status": "PLANNED", "delay_days": null, "reference_date": "2026-09-30", "source_url": null, "data_status": "PARTIAL"}
+  ],
+  "construction_progress": [
+    {"id": "CP001", "project_id": "P003", "reference_date": "2026-09-30", "planned_progress_rate": 55, "actual_progress_rate": 43, "progress_gap": -12, "planned_completion_date": "2027-03-20", "forecast_completion_date": "2027-05-15", "source_url": null, "data_status": "AVAILABLE", "monthly_series": [{"month": "2026-05", "planned": 35, "actual": 31}, {"month": "2026-06", "planned": 40, "actual": 34}, {"month": "2026-07", "planned": 45, "actual": 37}, {"month": "2026-08", "planned": 50, "actual": 40}, {"month": "2026-09", "planned": 55, "actual": 43}]},
+    {"id": "CP002", "project_id": "P007", "reference_date": "2026-09-30", "planned_progress_rate": 62, "actual_progress_rate": 61, "progress_gap": -1, "planned_completion_date": "2027-01-20", "forecast_completion_date": "2027-01-27", "source_url": null, "data_status": "AVAILABLE", "monthly_series": [{"month": "2026-05", "planned": 42, "actual": 42}, {"month": "2026-06", "planned": 47, "actual": 46}, {"month": "2026-07", "planned": 52, "actual": 51}, {"month": "2026-08", "planned": 57, "actual": 56}, {"month": "2026-09", "planned": 62, "actual": 61}]},
+    {"id": "CP003", "project_id": "P008", "reference_date": "2026-09-30", "planned_progress_rate": null, "actual_progress_rate": null, "progress_gap": null, "planned_completion_date": "2028-01-31", "forecast_completion_date": null, "source_url": null, "data_status": "NOT_AVAILABLE", "monthly_series": []},
+    {"id": "CP004", "project_id": "P011", "reference_date": "2026-09-30", "planned_progress_rate": 48, "actual_progress_rate": 29, "progress_gap": -19, "planned_completion_date": "2027-09-30", "forecast_completion_date": "2028-02-15", "source_url": null, "data_status": "PARTIAL", "monthly_series": [{"month": "2026-05", "planned": 28, "actual": 22}, {"month": "2026-06", "planned": 33, "actual": 24}, {"month": "2026-07", "planned": 38, "actual": 26}, {"month": "2026-08", "planned": 43, "actual": 28}, {"month": "2026-09", "planned": 48, "actual": 29}]},
+    {"id": "CP005", "project_id": "P012", "reference_date": "2026-09-30", "planned_progress_rate": 36, "actual_progress_rate": 32, "progress_gap": -4, "planned_completion_date": "2027-06-01", "forecast_completion_date": "2027-06-24", "source_url": null, "data_status": "PARTIAL", "monthly_series": [{"month": "2026-05", "planned": 20, "actual": 19}, {"month": "2026-06", "planned": 24, "actual": 22}, {"month": "2026-07", "planned": 28, "actual": 25}, {"month": "2026-08", "planned": 32, "actual": 28}, {"month": "2026-09", "planned": 36, "actual": 32}]}
+  ],
+  "supply_announcements": [
+    {"id": "SA001", "project_id": "P004", "supply_type": "공공임대", "supply_units": 1900, "target_group": "무주택 가구", "announcement_date": "2026-10-21", "application_start_date": "2026-11-02", "application_end_date": "2026-11-08", "planned_move_in_date": "2027-08-01", "source_url": null, "data_status": "AVAILABLE"},
+    {"id": "SA002", "project_id": "P010", "supply_type": "공공분양", "supply_units": 2400, "target_group": "신혼·생애최초", "announcement_date": "2026-10-08", "application_start_date": "2026-10-19", "application_end_date": "2026-10-23", "planned_move_in_date": "2028-03-01", "source_url": null, "data_status": "PARTIAL"}
+  ],
+  "data_sources": [
+    {"id": "DS001", "organization": "LH", "source_name": "DEMO LH 구조 샘플", "source_url": null, "collected_at": "2026-10-05T09:00:00+09:00", "reference_date": "2026-09-30", "collection_method": "SAMPLE_JSON", "validation_status": "DEMO_ONLY"},
+    {"id": "DS002", "organization": "SH", "source_name": "서울열린데이터광장 연계 예정", "source_url": null, "collected_at": null, "reference_date": null, "collection_method": "NOT_CONNECTED", "validation_status": "PENDING"},
+    {"id": "DS003", "organization": "GH", "source_name": "DEMO GH 구조 샘플", "source_url": null, "collected_at": "2026-10-05T09:00:00+09:00", "reference_date": "2026-09-30", "collection_method": "SAMPLE_JSON", "validation_status": "DEMO_ONLY"},
+    {"id": "DS004", "organization": "iH", "source_name": "DEMO iH 구조 샘플", "source_url": null, "collected_at": "2026-10-05T09:00:00+09:00", "reference_date": "2026-09-30", "collection_method": "SAMPLE_JSON", "validation_status": "DEMO_ONLY"}
+  ],
+  "coverage": [
+    {"organization": "LH", "stages": {"POLICY": "PARTIAL", "BUSINESS": "AVAILABLE", "PERMIT": "PARTIAL", "CONSTRUCTION": "PARTIAL", "SUPPLY": "AVAILABLE", "MOVE_IN": "PARTIAL"}, "note": "구조 검증용 샘플 데이터"},
+    {"organization": "SH", "stages": {"POLICY": "NOT_CONNECTED", "BUSINESS": "NOT_CONNECTED", "PERMIT": "NOT_CONNECTED", "CONSTRUCTION": "NOT_CONNECTED", "SUPPLY": "NOT_CONNECTED", "MOVE_IN": "NOT_CONNECTED"}, "note": "서울열린데이터광장 API 배포 후 연계 예정"},
+    {"organization": "GH", "stages": {"POLICY": "PARTIAL", "BUSINESS": "PARTIAL", "PERMIT": "PARTIAL", "CONSTRUCTION": "NOT_AVAILABLE", "SUPPLY": "PARTIAL", "MOVE_IN": "NOT_AVAILABLE"}, "note": "공정·입주 원천 데이터 미제공 가정"},
+    {"organization": "iH", "stages": {"POLICY": "PARTIAL", "BUSINESS": "PARTIAL", "PERMIT": "PARTIAL", "CONSTRUCTION": "PARTIAL", "SUPPLY": "AVAILABLE", "MOVE_IN": "PARTIAL"}, "note": "구조 검증용 샘플 데이터"}
+  ]
+}
