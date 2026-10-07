@@ -1,7 +1,9 @@
 BEGIN;
 
 ALTER TABLE raw_api_records DROP CONSTRAINT IF EXISTS raw_api_records_response_format_check;
-ALTER TABLE raw_api_records ADD CONSTRAINT raw_api_records_response_format_check CHECK (response_format IN ('JSON', 'XML', 'HTML_TABLE'));
+-- Keep the later LH detail-page representation valid when all migrations are
+-- safely re-applied to an already populated database.
+ALTER TABLE raw_api_records ADD CONSTRAINT raw_api_records_response_format_check CHECK (response_format IN ('JSON', 'XML', 'HTML_TABLE', 'HTML_PAGE'));
 
 CREATE TABLE IF NOT EXISTS project_schedule_periods (
     id text PRIMARY KEY,

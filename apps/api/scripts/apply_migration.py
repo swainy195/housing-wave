@@ -17,6 +17,7 @@ EXPECTED_TABLES = (
     "organizations", "policies", "projects", "policy_project_links", "data_sources",
     "project_events", "construction_progress", "supply_announcements", "data_status_history",
     "organization_stage_coverage", "raw_api_records", "external_identifiers", "project_candidates", "project_schedule_periods",
+    "housing_complex_references", "project_housing_complex_references",
 )
 EXPECTED_VIEWS = (
     "v_latest_construction_progress", "v_project_current_status", "v_policy_progress",
@@ -73,7 +74,7 @@ def inspect_database(database_url: str) -> dict[str, Any]:
             )
             found_views = {row[0] for row in cursor.fetchall()}
             counts: dict[str, int] = {}
-            for table in ("organizations", "policies", "projects", "construction_progress", "raw_api_records", "external_identifiers", "project_candidates", "project_schedule_periods"):
+            for table in ("organizations", "policies", "projects", "construction_progress", "raw_api_records", "external_identifiers", "project_candidates", "project_schedule_periods", "housing_complex_references", "project_housing_complex_references"):
                 if table in found_tables:
                     cursor.execute(f"SELECT COUNT(*) FROM {table}")
                     counts[table] = cursor.fetchone()[0]

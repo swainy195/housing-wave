@@ -251,6 +251,9 @@ class DashboardService:
         }
 
     def regions(self) -> list[dict[str, Any]]:
+        coverage_rows = self.repo.all("coverage")
+        sh_coverage = next((row for row in coverage_rows if row["organization"] == "SH"), None)
+        sh_reference_connected = bool(sh_coverage and sh_coverage["stages"].get("SUPPLY") == "PARTIAL")
         result = []
         for region in ["서울", "경기", "인천"]:
             projects = [p for p in self._enriched_projects() if p["province"] == region]
@@ -263,8 +266,12 @@ class DashboardService:
                 "schedule_delay_count": len({a["project_id"] for a in region_alerts if a["issue_type"] == "SCHEDULE_DELAY"}),
                 "progress_delay_count": len({p["project_id"] for p in progress if p["status"] in {"WARNING", "DELAYED"}}),
                 "data_gap_count": len([p for p in projects if p["data_status"] in {"NOT_CONNECTED", "NOT_AVAILABLE"}]),
-                "data_status": "NOT_CONNECTED" if region == "서울" else "PARTIAL",
-                "note": "서울열린데이터광장 API 배포 후 연계 예정" if region == "서울" else ("LH/GH 샘플 구조 일부 확보" if region == "경기" else "iH 샘플 구조 일부 확보"),
+                "data_status": "PARTIAL" if region == "서울" and sh_reference_connected else ("NOT_CONNECTED" if region == "서울" else "PARTIAL"),
+                "note": (
+                    "SH 주택관리현황 reference master 연결: 공급계획·공고·실적·좌표는 미연계"
+                    if region == "서울" and sh_reference_connected
+                    else ("서울열린데이터광장 API 배포 후 연계 예정" if region == "서울" else ("LH/GH 샘플 구조 일부 확보" if region == "경기" else "iH 샘플 구조 일부 확보"))
+                ),
             })
         return result
 

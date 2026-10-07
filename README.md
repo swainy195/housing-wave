@@ -26,6 +26,7 @@
 | 수도권 LIVE Project Master | 23 |
 | 서울 / 경기 / 인천 | 3 / 15 / 5 |
 | 계획 공급호수 | 8,072호 |
+| SH 주택관리현황 reference master | 825건 |
 | Project-driven 공식 공고 검색어 | 80 |
 | 신규 공식 PAN_ID 공고 | 55 |
 | 자동 오매칭 / VERIFIED | 0 / 0 |
@@ -88,7 +89,7 @@ npm run build
 
 Production frontend API URL is supplied only through `VITE_API_BASE_URL`; backend CORS uses the explicit `CORS_ALLOWED_ORIGINS` setting. Public service URLs are intentionally not listed until a Vercel and Render account deployment has completed. The deployment procedure is in [deployment.md](docs/deployment.md).
 
-Seoul Open Data API status: **NOT_CONNECTED**. `SEOUL_OPEN_DATA_API_KEY` is reserved for a server-side-only, minimal dry-run after an issued key and a dataset specification are available.
+Seoul Open Data API status: **PARTIAL**. SH 주택관리현황(`SearchSHRentApt`) 825건은 RAW와 단지 reference master로 연결됐습니다. 이 데이터는 관리현황이며 공급계획·공고·실적·좌표를 뜻하지 않습니다. 단지명과 자치구가 모두 정확히 일치할 때만 비-DEMO SH 사업과 연결하며, 현재 공식 SH 공급계획 Project Master가 없어 자동 연결은 하지 않습니다.
 
 ## 데이터 품질 원칙
 
